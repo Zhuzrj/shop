@@ -13,7 +13,7 @@ public class Shopcar implements Serializable {
 	@Override
 	public String toString() {
 		return "Shopcar [id=" + id + ", goodsid=" + goodsid + ", number="
-				+ number + ", shopgoodsid=" + shopgoodsid + "]";
+				+ number + ", userid=" + userid + "]";
 	}
 
 	/** serialVersionUID. */
@@ -29,7 +29,7 @@ public class Shopcar implements Serializable {
 	private Integer number;
 
 	/** 用户编号. */
-	private Integer shopgoodsid;
+	private Integer userid;
 
 	/**
 	 * 僐儞僗僩儔僋�?.
@@ -97,11 +97,11 @@ public class Shopcar implements Serializable {
 	/**
 	 * 用户编号 傪愝掕偟傑偡.
 	 * 
-	 * @param shopgoodsid
+	 * @param userid
 	 *            用户编号
 	 */
-	public void setShopgoodsid(Integer shopgoodsid) {
-		this.shopgoodsid = shopgoodsid;
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 	/**
@@ -109,8 +109,8 @@ public class Shopcar implements Serializable {
 	 * 
 	 * @return 用户编号
 	 */
-	public Integer getShopgoodsid() {
-		return this.shopgoodsid;
+	public Integer getUserid() {
+		return this.userid;
 	}
 
 	/**

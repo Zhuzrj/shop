@@ -19,8 +19,8 @@ public class Orders implements Serializable {
 	/** 订单时间. */
 	private String ordertime;
 
-	/** 订单用户编号. */
-	private Integer orderuserid;
+	/** 用户编号. */
+	private Integer userid;
 
 	/** 订单状�??. */
 	private String orderstate;
@@ -76,22 +76,22 @@ public class Orders implements Serializable {
 	}
 
 	/**
-	 * 订单用户编号 傪愝掕偟傑偡.
+	 * 用户编号 傪愝掕偟傑偡.
 	 * 
-	 * @param orderuserid
-	 *            订单用户编号
+	 * @param userid
+	 *            用户编号
 	 */
-	public void setOrderuserid(Integer orderuserid) {
-		this.orderuserid = orderuserid;
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 	/**
-	 * 订单用户编号 傪庢摼偟傑偡.
+	 * 用户编号 傪庢摼偟傑偡.
 	 * 
-	 * @return 订单用户编号
+	 * @return 用户编号
 	 */
-	public Integer getOrderuserid() {
-		return this.orderuserid;
+	public Integer getUserid() {
+		return this.userid;
 	}
 
 	/**

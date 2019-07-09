@@ -20,7 +20,7 @@ public class Collector implements Serializable {
 	private String collectortime;
 
 	/** 商品编号. */
-	private Integer collectoruserid;
+	private Integer goodsid;
 
 	/** 收藏夹分类名�?. */
 	private String collectorname;
@@ -72,11 +72,11 @@ public class Collector implements Serializable {
 	/**
 	 * 商品编号 傪愝掕偟傑偡.
 	 * 
-	 * @param collectoruserid
+	 * @param goodsid
 	 *            商品编号
 	 */
-	public void setCollectoruserid(Integer collectoruserid) {
-		this.collectoruserid = collectoruserid;
+	public void setGoodsid(Integer goodsid) {
+		this.goodsid = goodsid;
 	}
 
 	/**
@@ -84,8 +84,8 @@ public class Collector implements Serializable {
 	 * 
 	 * @return 商品编号
 	 */
-	public Integer getCollectoruserid() {
-		return this.collectoruserid;
+	public Integer getGoodsid() {
+		return this.goodsid;
 	}
 
 	/**

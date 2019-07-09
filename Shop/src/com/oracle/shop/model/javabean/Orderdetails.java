@@ -17,13 +17,13 @@ public class Orderdetails implements Serializable {
 	private Integer itemid;
 
 	/** 商品编号. */
-	private Integer orderdetailsgoodsid;
+	private Integer goodsid;
 
 	/** 商品数量. */
 	private Double orderdetailsgoodsnumber;
 
 	/** 订单编号. */
-	private Integer orderdetailsorderid;
+	private Integer orderid;
 
 	/**
 	 * 僐儞僗僩儔僋�?.
@@ -53,11 +53,11 @@ public class Orderdetails implements Serializable {
 	/**
 	 * 商品编号 傪愝掕偟傑偡.
 	 * 
-	 * @param orderdetailsgoodsid
+	 * @param goodsid
 	 *            商品编号
 	 */
-	public void setOrderdetailsgoodsid(Integer orderdetailsgoodsid) {
-		this.orderdetailsgoodsid = orderdetailsgoodsid;
+	public void setGoodsid(Integer goodsid) {
+		this.goodsid = goodsid;
 	}
 
 	/**
@@ -65,8 +65,8 @@ public class Orderdetails implements Serializable {
 	 * 
 	 * @return 商品编号
 	 */
-	public Integer getOrderdetailsgoodsid() {
-		return this.orderdetailsgoodsid;
+	public Integer getGoodsid() {
+		return this.goodsid;
 	}
 
 	/**
@@ -91,11 +91,11 @@ public class Orderdetails implements Serializable {
 	/**
 	 * 订单编号 傪愝掕偟傑偡.
 	 * 
-	 * @param orderdetailsorderid
+	 * @param orderid
 	 *            订单编号
 	 */
-	public void setOrderdetailsorderid(Integer orderdetailsorderid) {
-		this.orderdetailsorderid = orderdetailsorderid;
+	public void setOrderid(Integer orderid) {
+		this.orderid = orderid;
 	}
 
 	/**
@@ -103,8 +103,8 @@ public class Orderdetails implements Serializable {
 	 * 
 	 * @return 订单编号
 	 */
-	public Integer getOrderdetailsorderid() {
-		return this.orderdetailsorderid;
+	public Integer getOrderid() {
+		return this.orderid;
 	}
 
 	/**
