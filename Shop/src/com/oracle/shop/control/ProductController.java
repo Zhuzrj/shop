@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oracle.shop.model.dao.ProductDAO;
@@ -18,12 +19,13 @@ public class ProductController {
 	private ProductDAO dao;
 	
 	@RequestMapping("/list")
-	public String listProduct(){
+	public String listProduct(Model m){
 		System.out.println("进入后台的方法");
 		List<Goods> gs=dao.listGoods();
 		for(Goods g:gs){
 			System.out.println(g);
 		}
+		m.addAttribute("gs", gs);
 		return "index";
 	}
 }

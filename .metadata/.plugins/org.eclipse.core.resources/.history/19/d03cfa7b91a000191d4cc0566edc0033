@@ -1,0 +1,16 @@
+package com.oracle.shop.control;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@Controller
+@RequestMapping("/product")
+public class ProductController {
+
+	@RequestMapping("/list")
+	public String listProduct(){
+		System.out.print("进入后台的方法");
+		return "list";
+	}
+}

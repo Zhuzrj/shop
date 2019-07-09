@@ -1,0 +1,213 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : shop
+ Source Server Type    : MySQL
+ Source Server Version : 50022
+ Source Host           : localhost:3306
+ Source Schema         : shop
+
+ Target Server Type    : MySQL
+ Target Server Version : 50022
+ File Encoding         : 65001
+
+ Date: 07/07/2019 16:07:58
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for collector
+-- ----------------------------
+DROP TABLE IF EXISTS `collector`;
+CREATE TABLE `collector`  (
+  `COLLECTORID` int(11) NOT NULL AUTO_INCREMENT,
+  `COLLECTORTIME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `COLLECTORUSERID` int(11) NOT NULL DEFAULT '',
+  `COLLECTORNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`COLLECTORID`),
+  INDEX `COLLECTORUSERID` USING BTREE(`COLLECTORUSERID`),
+  CONSTRAINT `collector_ibfk_1` FOREIGN KEY (`COLLECTORUSERID`) REFERENCES `goods` (`GOODSID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`COLLECTORUSERID`) REFER `shop/goods`(`GOODSID`)' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for goods
+-- ----------------------------
+DROP TABLE IF EXISTS `goods`;
+CREATE TABLE `goods`  (
+  `GOODSID` int(11) NOT NULL AUTO_INCREMENT,
+  `GOODSNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `BRANDNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `PRICE` double NOT NULL DEFAULT '',
+  `GOODSNUMBER` double NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`GOODSID`)
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of goods
+-- ----------------------------
+INSERT INTO `goods` VALUES (1, ' UxQTBo1cngOFhl', '玩具', 557.75, 636);
+INSERT INTO `goods` VALUES (2, 'TxizCPJerf1Lx', '图书', 374.87, 627);
+INSERT INTO `goods` VALUES (3, '9AODiBcgz Q', '玩具', 541.09, 74);
+INSERT INTO `goods` VALUES (4, 'Ntvnn4jfyAxuZTu', '服饰', 371.87, 284);
+INSERT INTO `goods` VALUES (5, '13ZdM7W9anId9Hkb', '服饰', 239.7, 995);
+INSERT INTO `goods` VALUES (6, 'yzdG4Md5VQExQoBlV2Vi', '图书', 585.83, 969);
+INSERT INTO `goods` VALUES (7, 'JxlzV 0ixidG', '服饰', 864.81, 171);
+INSERT INTO `goods` VALUES (8, 'iEk6wJbHud', '服饰', 265.79, 828);
+INSERT INTO `goods` VALUES (9, '9UT4xwO p43KIk', '电子产品', 491.78, 236);
+INSERT INTO `goods` VALUES (10, 'LvSt12r4fyARhfG3', '电子产品', 336.04, 996);
+INSERT INTO `goods` VALUES (11, 'MkqDPh6tcUsXA1Z', '电子产品', 637.66, 54);
+INSERT INTO `goods` VALUES (12, 'fUmU6xCO27plAq7ks', '图书', 286.95, 261);
+INSERT INTO `goods` VALUES (13, '08 HW1J9yIyFXXCP6Ww', '服饰', 266.71, 581);
+INSERT INTO `goods` VALUES (14, 'qRxamtZUOIdLHbSiuX5', '服饰', 250.7, 490);
+INSERT INTO `goods` VALUES (15, '7VYJMQulKqHlk2ktSW', '电子产品', 711.45, 236);
+INSERT INTO `goods` VALUES (16, '9pVpXpxA8vFP', '电子产品', 161.58, 501);
+INSERT INTO `goods` VALUES (17, 'TaBNH7ZDKK1 14Eu', '玩具', 408.36, 459);
+INSERT INTO `goods` VALUES (18, 'fkEmGR9QR ', '玩具', 389.3, 344);
+INSERT INTO `goods` VALUES (19, ' Me aDO7FL', '玩具', 821.87, 266);
+INSERT INTO `goods` VALUES (20, '6E465VkDO1vy86Mf', '电子产品', 301.96, 132);
+INSERT INTO `goods` VALUES (21, '9WMeBX4LOtv5OKjI4L', '电子产品', 355.19, 862);
+INSERT INTO `goods` VALUES (22, '8irQiLSmWDOEqON0DMj', '图书', 168.05, 404);
+INSERT INTO `goods` VALUES (23, '5dkROMq9W6hq9EbO', '电子产品', 805.12, 987);
+INSERT INTO `goods` VALUES (24, 'Mt0JFOPpKSzvBmxyB', '玩具', 352.06, 795);
+INSERT INTO `goods` VALUES (25, '7DIRw09a2jRTT', '玩具', 814.18, 480);
+INSERT INTO `goods` VALUES (26, 'xwpNAyHXrs', '图书', 51.02, 404);
+INSERT INTO `goods` VALUES (27, 'ER 6NR4UuRL', '图书', 640.85, 649);
+INSERT INTO `goods` VALUES (28, '9uzAnkkEBYUjb6 i', '服饰', 468.57, 104);
+INSERT INTO `goods` VALUES (29, 'nnZ8JMs3f8m2', '玩具', 334.58, 649);
+INSERT INTO `goods` VALUES (30, '7HQsyGsrF5gOlSVeL', '电子产品', 929.28, 232);
+INSERT INTO `goods` VALUES (31, 'eU1zHxCKvzQjyQb', '图书', 169.75, 109);
+INSERT INTO `goods` VALUES (32, 'FV0IZsbHSnYwZIBmK', '服饰', 60.37, 457);
+INSERT INTO `goods` VALUES (33, 'NaRYwCPJo1UKjDF9OaA', '电子产品', 811.89, 989);
+INSERT INTO `goods` VALUES (34, '28yMNAhSxkqkZQo0a0', '图书', 562.97, 336);
+INSERT INTO `goods` VALUES (35, 'M5Z5HgrH80QdOMP', '图书', 424.4, 545);
+INSERT INTO `goods` VALUES (36, 'Nqtq9KCisK7', '电子产品', 556.5, 795);
+INSERT INTO `goods` VALUES (37, 'aDxQV39eoWGJ6XOVU', '服饰', 776, 118);
+INSERT INTO `goods` VALUES (38, 'y9iI5xvXNH0iAKd2vD', '图书', 844.65, 843);
+INSERT INTO `goods` VALUES (39, 'b2IKFSHLEuQ6G', '服饰', 60.98, 467);
+INSERT INTO `goods` VALUES (40, 'F1j5wU9M5fqg4', '玩具', 278.09, 374);
+INSERT INTO `goods` VALUES (41, 'dbdxoEsQG5VgdgZ36', '玩具', 477.9, 782);
+INSERT INTO `goods` VALUES (42, 'M7s6aXESxX YvbDBIs', '玩具', 13.02, 950);
+INSERT INTO `goods` VALUES (43, 'gf A3GCK4tuaj', '服饰', 905.66, 826);
+INSERT INTO `goods` VALUES (44, 'iCYxateccjg7J', '图书', 460.98, 150);
+INSERT INTO `goods` VALUES (45, 'Gm29mTu B5OAcdDB457', '电子产品', 835.31, 941);
+INSERT INTO `goods` VALUES (46, 'Ix3QwKFIqSWf6x', '电子产品', 393.57, 106);
+INSERT INTO `goods` VALUES (47, 'rrfBL9lHvGFI', '电子产品', 76.56, 492);
+INSERT INTO `goods` VALUES (48, 'SFrtappl Sx5w', '服饰', 372.36, 563);
+INSERT INTO `goods` VALUES (49, 'm5NQVWVR8w0k4qDl9DQ', '玩具', 268.19, 998);
+INSERT INTO `goods` VALUES (50, 'cjFzy6He7tRyqmgHi', '服饰', 145.62, 767);
+INSERT INTO `goods` VALUES (51, 'v8FTqePglqSJA05Y', '玩具', 798.45, 423);
+INSERT INTO `goods` VALUES (52, 'Z4kEcFmqQjkyO070r', '玩具', 114.46, 609);
+INSERT INTO `goods` VALUES (53, 'uYqOsWYjn6tA', '玩具', 339.5, 994);
+INSERT INTO `goods` VALUES (54, 'mfTP8AOVaZFPzvhdvZ', '玩具', 194.69, 270);
+INSERT INTO `goods` VALUES (55, '4TeJvW5Z9Ls', '图书', 561.21, 595);
+INSERT INTO `goods` VALUES (56, 'jJpZ94DnEdzXKz', '服饰', 998.48, 165);
+INSERT INTO `goods` VALUES (57, 'tdJLx3B2IH0ECO', '玩具', 520.11, 68);
+INSERT INTO `goods` VALUES (58, 'Ip0XGnloJSGyHM9v1', '服饰', 230.96, 244);
+INSERT INTO `goods` VALUES (59, 'I33HW0WnX1fueO', '电子产品', 857.96, 804);
+INSERT INTO `goods` VALUES (60, 'k3JU0eX7Dzr', '图书', 546.82, 810);
+INSERT INTO `goods` VALUES (61, 'KLkNhVKvyZW', '图书', 950.92, 285);
+INSERT INTO `goods` VALUES (62, 'ckKeSnkfVdZWJYf', '电子产品', 379.98, 599);
+INSERT INTO `goods` VALUES (63, 'lhR9O4RvKA', '电子产品', 528.49, 34);
+INSERT INTO `goods` VALUES (64, '2zeyE3Zbg3vazm', '图书', 122.9, 147);
+INSERT INTO `goods` VALUES (65, '2frAPMVQjdQRz5N', '图书', 158.79, 900);
+INSERT INTO `goods` VALUES (66, 'L25K7s8KO0fG', '电子产品', 664.01, 576);
+INSERT INTO `goods` VALUES (67, 'vp hBo0zd ', '玩具', 250.75, 258);
+INSERT INTO `goods` VALUES (68, '9O3WoIsh9frwAeaXkbg', '服饰', 430.52, 295);
+INSERT INTO `goods` VALUES (69, 'kUZf5Q4GAej09G', '服饰', 125.53, 981);
+INSERT INTO `goods` VALUES (70, 'TrrXlVWvWH hkbgng', '玩具', 328.72, 986);
+INSERT INTO `goods` VALUES (71, 'q9W96ne0d1Iok', '玩具', 814.59, 54);
+INSERT INTO `goods` VALUES (72, 'sHeKG9s R3h6VyLbMy', '电子产品', 525.78, 831);
+INSERT INTO `goods` VALUES (73, ' MqEWYMd8vsPbZOgF', '电子产品', 618.1, 230);
+INSERT INTO `goods` VALUES (74, 'lobnA1JAv2btJ', '玩具', 65.57, 738);
+INSERT INTO `goods` VALUES (75, '7VxNrAVaCSfVaEhSh', '玩具', 860.69, 576);
+INSERT INTO `goods` VALUES (76, 'I1ELnHIJGK8F8ZZkqD', '玩具', 411.66, 972);
+INSERT INTO `goods` VALUES (77, 'XDRGjr0KBY', '玩具', 947.94, 288);
+INSERT INTO `goods` VALUES (78, 'lTES7BJzH8IDmGFPh', '图书', 89.14, 141);
+INSERT INTO `goods` VALUES (79, 'c5VIWWTqLU1Io5HRSK', '服饰', 856.9, 537);
+INSERT INTO `goods` VALUES (80, 'X9CNPZbiUmYD', '图书', 373.22, 390);
+INSERT INTO `goods` VALUES (81, '3mU8TJdcOwe4UCMjtDA', '玩具', 385.09, 155);
+INSERT INTO `goods` VALUES (82, 'kQR2CKYoHq9OxAI', '玩具', 967.96, 289);
+INSERT INTO `goods` VALUES (83, 'RD4wHE1UdH3', '图书', 701.81, 320);
+INSERT INTO `goods` VALUES (84, 'UH1X46iThe', '电子产品', 539.33, 665);
+INSERT INTO `goods` VALUES (85, 'xCVhyYaY wIn8T3T', '服饰', 127.62, 538);
+INSERT INTO `goods` VALUES (86, 'A5s0JjKWn0460d0QWhv', '电子产品', 960.39, 392);
+INSERT INTO `goods` VALUES (87, 'wevilO9wT3WtNDmqh', '图书', 119.91, 947);
+INSERT INTO `goods` VALUES (88, 'mIEHqcU1CJAW9FJ', '服饰', 452.19, 36);
+INSERT INTO `goods` VALUES (89, 'MwDYXJmbPvSK', '电子产品', 832.48, 476);
+INSERT INTO `goods` VALUES (90, 'jnTeYvKmiW4AiKYUoDH', '服饰', 662.87, 56);
+INSERT INTO `goods` VALUES (91, 'ht8a1yYOlupkPKS7A', '玩具', 413.56, 37);
+INSERT INTO `goods` VALUES (92, 'PfJjA2CQZyut', '服饰', 67.54, 934);
+INSERT INTO `goods` VALUES (93, 'Pj5m 4l 33Yl', '图书', 645.99, 686);
+INSERT INTO `goods` VALUES (94, 'aBKa2y9KINy6tR', '服饰', 119.61, 75);
+INSERT INTO `goods` VALUES (95, 'BtFc9nMg6dOL', '图书', 305.3, 603);
+INSERT INTO `goods` VALUES (96, 'MxOhRojz5RDvbGr3P9z', '电子产品', 138.75, 242);
+INSERT INTO `goods` VALUES (97, 'cO6JltwHgeHoA', '图书', 565.03, 587);
+INSERT INTO `goods` VALUES (98, '6nqBuMoivMb1', '图书', 358.52, 216);
+INSERT INTO `goods` VALUES (99, 'nLYsXTInlqP ', '玩具', 331.62, 839);
+INSERT INTO `goods` VALUES (100, 'EdIhUSc4YaTOIfxn1hc', '图书', 387.65, 709);
+
+-- ----------------------------
+-- Table structure for orderdetails
+-- ----------------------------
+DROP TABLE IF EXISTS `orderdetails`;
+CREATE TABLE `orderdetails`  (
+  `ORDERDETAILSGOODSID` int(11) NOT NULL DEFAULT '',
+  `ORDERDETAILSGOODSNUMBER` double NOT NULL DEFAULT '',
+  `ORDERDETAILSORDERID` int(11) NOT NULL DEFAULT '',
+  INDEX `ORDERDETAILSGOODSID` USING BTREE(`ORDERDETAILSGOODSID`),
+  INDEX `ORDERDETAILSORDERID` USING BTREE(`ORDERDETAILSORDERID`),
+  CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`ORDERDETAILSORDERID`) REFERENCES `orders` (`ORDERID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`ORDERDETAILSGOODSID`) REFERENCES `goods` (`GOODSID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`ORDERDETAILSORDERID`) REFER `shop/orders`(`ORDERID`); (`' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders`  (
+  `ORDERID` int(11) NOT NULL DEFAULT '',
+  `ORDERTIME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ORDERUSERID` int(11) NOT NULL DEFAULT '',
+  `ORDERSTATE` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ORDERADDRESS` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `SOMETHING` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`ORDERID`),
+  INDEX `ORDERUSERID` USING BTREE(`ORDERUSERID`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`ORDERUSERID`) REFERENCES `users` (`USERID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`ORDERUSERID`) REFER `shop/users`(`USERID`)' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for shopcar
+-- ----------------------------
+DROP TABLE IF EXISTS `shopcar`;
+CREATE TABLE `shopcar`  (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `GOODSID` int(11) NOT NULL DEFAULT '',
+  `NUMBER` int(11) NOT NULL DEFAULT '',
+  `SHOPGOODSID` int(11) NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`ID`),
+  INDEX `GOODSID` USING BTREE(`GOODSID`),
+  INDEX `SHOPGOODSID` USING BTREE(`SHOPGOODSID`),
+  CONSTRAINT `shopcar_ibfk_2` FOREIGN KEY (`SHOPGOODSID`) REFERENCES `users` (`USERID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `shopcar_ibfk_1` FOREIGN KEY (`GOODSID`) REFERENCES `goods` (`GOODSID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`SHOPGOODSID`) REFER `shop/users`(`USERID`); (`GOODSID`) ' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `USERID` int(11) NOT NULL AUTO_INCREMENT,
+  `USERNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `PASSWORD` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `NICKNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `PICTURE` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `SEX` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `AGE` int(11) NOT NULL DEFAULT '',
+  `TEL` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`USERID`)
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+SET FOREIGN_KEY_CHECKS = 1;

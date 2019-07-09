@@ -1,0 +1,112 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : shop
+ Source Server Type    : MySQL
+ Source Server Version : 50022
+ Source Host           : localhost:3306
+ Source Schema         : shop
+
+ Target Server Type    : MySQL
+ Target Server Version : 50022
+ File Encoding         : 65001
+
+ Date: 07/07/2019 14:25:52
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for collector
+-- ----------------------------
+DROP TABLE IF EXISTS `collector`;
+CREATE TABLE `collector`  (
+  `COLLECTORID` int(11) NOT NULL AUTO_INCREMENT,
+  `COLLECTORTIME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `COLLECTORUSERID` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `COLLECTORNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`COLLECTORID`),
+  INDEX `COLLECTORUSERID` USING BTREE(`COLLECTORUSERID`),
+  CONSTRAINT `collector_ibfk_1` FOREIGN KEY (`COLLECTORUSERID`) REFERENCES `goods` (`GOODSID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`COLLECTORUSERID`) REFER `shop/goods`(`GOODSID`)' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for goods
+-- ----------------------------
+DROP TABLE IF EXISTS `goods`;
+CREATE TABLE `goods`  (
+  `GOODSID` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `GOODSNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `BRANDNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `PRICE` double NOT NULL DEFAULT '',
+  `GOODSNUMBER` double NOT NULL DEFAULT '',
+  `GOODSCOLOR` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `GOODSPICTURE` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `GOODSSIZE` double NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`GOODSID`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for orderdetails
+-- ----------------------------
+DROP TABLE IF EXISTS `orderdetails`;
+CREATE TABLE `orderdetails`  (
+  `ORDERDETAILSGOODSID` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ORDERDETAILSGOODSNUMBER` double NOT NULL DEFAULT '',
+  `ORDERDETAILSORDERID` int(11) NOT NULL DEFAULT '',
+  INDEX `ORDERDETAILSGOODSID` USING BTREE(`ORDERDETAILSGOODSID`),
+  INDEX `ORDERDETAILSORDERID` USING BTREE(`ORDERDETAILSORDERID`),
+  CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`ORDERDETAILSORDERID`) REFERENCES `orders` (`ORDERID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`ORDERDETAILSGOODSID`) REFERENCES `goods` (`GOODSID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`ORDERDETAILSORDERID`) REFER `shop/orders`(`ORDERID`); (`' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders`  (
+  `ORDERID` int(11) NOT NULL DEFAULT '',
+  `ORDERTIME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ORDERUSERID` int(11) NOT NULL DEFAULT '',
+  `ORDERSTATE` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ORDERADDRESS` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `SOMETHING` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`ORDERID`),
+  INDEX `ORDERUSERID` USING BTREE(`ORDERUSERID`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`ORDERUSERID`) REFERENCES `users` (`USERID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`ORDERUSERID`) REFER `shop/users`(`USERID`)' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for shopcar
+-- ----------------------------
+DROP TABLE IF EXISTS `shopcar`;
+CREATE TABLE `shopcar`  (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `GOODSID` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `NUMBER` int(11) NOT NULL DEFAULT '',
+  `SHOPGOODSID` int(11) NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`ID`),
+  INDEX `GOODSID` USING BTREE(`GOODSID`),
+  INDEX `SHOPGOODSID` USING BTREE(`SHOPGOODSID`),
+  CONSTRAINT `shopcar_ibfk_2` FOREIGN KEY (`SHOPGOODSID`) REFERENCES `users` (`USERID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `shopcar_ibfk_1` FOREIGN KEY (`GOODSID`) REFERENCES `goods` (`GOODSID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'InnoDB free: 3072 kB; (`SHOPGOODSID`) REFER `shop/users`(`USERID`); (`GOODSID`) ' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `USERID` int(11) NOT NULL AUTO_INCREMENT,
+  `USERNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `PASSWORD` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `NICKNAME` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `PICTURE` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `SEX` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `AGE` int(11) NOT NULL DEFAULT '',
+  `TEL` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY USING BTREE (`USERID`)
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+SET FOREIGN_KEY_CHECKS = 1;
