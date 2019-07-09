@@ -6,7 +6,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	if(request.getAttribute("gs")==null){
-	request.getRequestDispatcher("product/list").forward(request, response);
+	request.getRequestDispatcher("product/list?page=1").forward(request, response);
 }
 %>
 <%
@@ -888,11 +888,14 @@
 				<!-- 底部页码 -->
 				<div class="footNum">
 					<ul>
-						<li class="pre"><a href="#">上一页</a></li>
-						<li class="num current"><a href="#">1</a></li>
-						<li class="num"><a href="#">2</a></li>
-						<li class="num"><a href="#">3</a></li>
-						<li class="last"><a href="#">下一页</a></li>
+					<li class="pre">当前第<%=request.getAttribute("nowPage") %>页/总共<%=request.getAttribute("allPage") %>,每页<%=request.getAttribute("count") %>条/总共<%=request.getAttribute("allCount") %>条</li>
+						<li class="pre"><a target="_self" href="product/list?page=1">首页</a></li>
+						<li class="pre"><a target="_self" href="product/list?page=<%=request.getAttribute("perviousPage") %>">上一页</a></li>
+<!-- 						<li class="num current"><a href="#">1</a></li> -->
+<!-- 						<li class="num"><a href="#">2</a></li> -->
+<!-- 						<li class="num"><a href="#">3</a></li> -->
+						<li class="last"><a target="_self" href="product/list?page=<%=request.getAttribute("nextPage") %>">下一页</a></li>
+						<li class="last"><a target="_self" href="product/list?page=<%=request.getAttribute("allPage") %>">尾页</a></li>
 						<li class="txt">向第</li>
 						<li class="ipt"><input type="text"></li>
 						<li><button>跳转</button></li>
