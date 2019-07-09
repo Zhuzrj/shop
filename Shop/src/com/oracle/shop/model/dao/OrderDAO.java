@@ -8,5 +8,5 @@ import org.apache.ibatis.annotations.Param;
 public interface OrderDAO {
 
 	@Insert("insert into orders(ordertime,orderstate,orderaddress,something,userid,name) values(#{times},#{orderstate},#{orderaddress},#{something},#{userid},#{name})")
-	public int addOrder(@Param("userid")int userid,@Param("name")String name,@Param("orderaddress")String address,@Param("something")String remark,@Param("orderstate")String status,@Param("times")String times);
+	public int addOrder(@Param("userid")int userid,@Param("name")String name,@Param("orderaddress")String orderaddress,@Param("something")String something,@Param("orderstate")String orderstate,@Param("times")String times);
 }

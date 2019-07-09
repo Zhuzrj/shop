@@ -25,11 +25,22 @@ public class Orders implements Serializable {
 	/** 订单状�??. */
 	private String orderstate;
 
+	@Override
+	public String toString() {
+		return "Orders [orderid=" + orderid + ", ordertime=" + ordertime
+				+ ", userid=" + userid + ", orderstate=" + orderstate
+				+ ", orderaddress=" + orderaddress + ", something=" + something
+				+ ", name=" + name + "]";
+	}
+
 	/** 收货地址. */
 	private String orderaddress;
 
 	/** 订单备注. */
 	private String something;
+
+	/** 用户名字. */
+	private String name;
 
 	/**
 	 * 僐儞僗僩儔僋�?.
@@ -149,6 +160,25 @@ public class Orders implements Serializable {
 	 */
 	public String getSomething() {
 		return this.something;
+	}
+
+	/**
+	 * 用户名字 傪愝掕偟傑偡.
+	 * 
+	 * @param name
+	 *            用户名字
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * 用户名字 傪庢摼偟傑偡.
+	 * 
+	 * @return 用户名字
+	 */
+	public String getName() {
+		return this.name;
 	}
 
 	/**
