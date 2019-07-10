@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
 	<x>0</x>
-	<y>0</y>
+	<y>168</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -100,7 +100,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-07-07 10:33:05</creation_date>
-			<updated_date>2019-07-09 15:42:24</updated_date>
+			<updated_date>2019-07-10 09:40:44</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -341,11 +341,11 @@
 			<description></description>
 			<logical_name>商品数量</logical_name>
 			<physical_name>orderdetailsgoodsnumber</physical_name>
-			<type>binary_double</type>
+			<type>integer</type>
 		</word>
 		<word>
 			<id>16</id>
-			<length>20</length>
+			<length>50</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
@@ -903,7 +903,7 @@
 			<connections>
 				<relation>
 					<id>2</id>
-					<source>1</source>
+					<source>3</source>
 					<target>2</target>
 					<child_cardinality>1..n</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
@@ -920,7 +920,7 @@
 				</relation>
 				<relation>
 					<id>3</id>
-					<source>3</source>
+					<source>1</source>
 					<target>2</target>
 					<child_cardinality>1..n</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
@@ -972,7 +972,7 @@
 				<normal_column>
 					<id>12</id>
 					<referenced_column>5</referenced_column>
-					<relation>2</relation>
+					<relation>3</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1004,7 +1004,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>binary_double</type>
+					<type>integer</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1027,7 +1027,7 @@
 				<normal_column>
 					<id>14</id>
 					<referenced_column>15</referenced_column>
-					<relation>3</relation>
+					<relation>2</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1318,7 +1318,7 @@
 			<connections>
 				<relation>
 					<id>5</id>
-					<source>1</source>
+					<source>5</source>
 					<target>4</target>
 					<child_cardinality>1..n</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
@@ -1335,7 +1335,7 @@
 				</relation>
 				<relation>
 					<id>6</id>
-					<source>5</source>
+					<source>1</source>
 					<target>4</target>
 					<child_cardinality>1..n</child_cardinality>
 					<parent_cardinality>1</parent_cardinality>
@@ -1387,7 +1387,7 @@
 				<normal_column>
 					<id>23</id>
 					<referenced_column>5</referenced_column>
-					<relation>5</relation>
+					<relation>6</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1442,7 +1442,7 @@
 				<normal_column>
 					<id>25</id>
 					<referenced_column>26</referenced_column>
-					<relation>6</relation>
+					<relation>5</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>

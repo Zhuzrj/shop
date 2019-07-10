@@ -39,13 +39,13 @@
 				<div class="user">
 					<% if(session.getAttribute("logineduser")==null){ %>
 						<a  href="login.jsp">登录</a> <span>|</span> <a
-						target="_blank" href="#">免费注册</a>
+						target="_blank" href="register.jsp">免费注册</a>
 						<%}else{ %>
-							欢迎您：<B style="text-shadow: 0px 0px 1px green"><%=((Users)session.getAttribute("logineduser")).getNickname() %></B>!
+							<img src="<%=((Users)session.getAttribute("logineduser")).getPicture()%>" style="width: 16px;height: 16px;border-radius:8px;border:1px solid black;margin-left: 5px;margin-right: 5px;position: relative;top: 5px;box-shadow:0px 0px 2px green"/>欢迎您：<B style="text-shadow: 0px 0px 1px green"><%=((Users)session.getAttribute("logineduser")).getNickname()%></B>!
 							
 							<%---这里应该是让安全退出的超级链接请求到后台的control方法，
 							方法里需要移除之前在session中保存的用户信息，然后后台直接跳转道网站首页？？？ --%>
-							<a href="">安全退出</a>
+							<a href="user/logout">安全退出</a>
 							<%
 						} %>
 				</div>
@@ -76,7 +76,7 @@
 					<span>|</span>
 					<li class="erWrap"><a href="#">收藏夹</a> <em></em>
 						<p class="headEr different">
-							<a href="#">收藏的宝贝</a> <a class="last" href="#">收藏的品牌</a>
+							<a href="fav/list">收藏的宝贝</a> <a class="last" href="fav/list">收藏的品牌</a>
 						</p></li>
 					<span>|</span>
 					<li class="erWrap"><a href="#">帮助中心</a> <em></em>
@@ -859,10 +859,9 @@
 
 						<li style="margin-right: 8px">
 							<div class="hoverShow collect">
-								<em></em>收藏
 							</div> <!-- <div class="hoverShow wish"><em></em>加入心愿单</div> -->
 							<div class="show">
-								<a class="add" href="car/add?pid=<%=g.getGoodsid() %>">加入购物车</a> <a class="contrast" href="#">商品对比</a>
+								<a class="add" href="car/add?pid=<%=g.getGoodsid() %>">加入购物车</a> <a class="contrast" href="fav/add?pid=<%=g.getGoodsid() %>">添加到收藏夹</a>
 							</div>
 							<div class="proImg">
 								<a href="#"> <img class="lazy" src="<%=g.getGoodspicture()%>"

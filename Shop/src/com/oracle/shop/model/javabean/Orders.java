@@ -10,11 +10,19 @@ import java.io.Serializable;
  */
 public class Orders implements Serializable {
 
+	@Override
+	public String toString() {
+		return "Orders [orderid=" + orderid + ", ordertime=" + ordertime
+				+ ", userid=" + userid + ", orderstate=" + orderstate
+				+ ", orderaddress=" + orderaddress + ", something=" + something
+				+ ", name=" + name + "]";
+	}
+
 	/** serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** 订单编号. */
-	private Integer orderid;
+	private String orderid;
 
 	/** 订单时间. */
 	private String ordertime;
@@ -24,14 +32,6 @@ public class Orders implements Serializable {
 
 	/** 订单状�??. */
 	private String orderstate;
-
-	@Override
-	public String toString() {
-		return "Orders [orderid=" + orderid + ", ordertime=" + ordertime
-				+ ", userid=" + userid + ", orderstate=" + orderstate
-				+ ", orderaddress=" + orderaddress + ", something=" + something
-				+ ", name=" + name + "]";
-	}
 
 	/** 收货地址. */
 	private String orderaddress;
@@ -54,7 +54,7 @@ public class Orders implements Serializable {
 	 * @param orderid
 	 *            订单编号
 	 */
-	public void setOrderid(Integer orderid) {
+	public void setOrderid(String orderid) {
 		this.orderid = orderid;
 	}
 
@@ -63,7 +63,7 @@ public class Orders implements Serializable {
 	 * 
 	 * @return 订单编号
 	 */
-	public Integer getOrderid() {
+	public String getOrderid() {
 		return this.orderid;
 	}
 

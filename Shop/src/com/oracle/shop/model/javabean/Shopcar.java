@@ -10,12 +10,6 @@ import java.io.Serializable;
  */
 public class Shopcar implements Serializable {
 
-	@Override
-	public String toString() {
-		return "Shopcar [id=" + id + ", goodsid=" + goodsid + ", number="
-				+ number + ", userid=" + userid + "]";
-	}
-
 	/** serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 

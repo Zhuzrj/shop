@@ -108,14 +108,14 @@
 			<div class="headLeft">
 				<div class="loginuser">
 					<a href="#">
-						<span>您好，1536983711@qq.com </span>
+						<span>您好 </span>
 						<span>|</span>
 					</a>
 				</div>
 				<div class="loginout">
-					<a href="#">退出</a>
+					<a href="user/logout">退出</a>
 					<span>|</span>
-					<a href="#">返回首页</a>
+					<a href="index">返回首页</a>
 				</div>
 				<div class="phone loginphone">
 					<a href="#">
@@ -366,8 +366,8 @@
 			<div class="account">
 				<ul>
 					<li>收货人:<input type="text" name="name" style="height: 25px;font-size: 14px;box-shadow:0px 0px 3px orange"/></li>
-					<li>收货地址:<input type="text" name="address" style="height: 25px;font-size: 14px;width: 400px;box-shadow:0px 0px 3px orange"/></li>
-					<li>备注:<input type="text" name="remark" style="height: 25px;font-size: 14px;width: 400px;box-shadow:0px 0px 3px orange"/></li>
+					<li>收货地址:<input type="text" name="orderaddress" style="height: 25px;font-size: 14px;width: 400px;box-shadow:0px 0px 3px orange"/></li>
+					<li>备注:<input type="text" name="something" style="height: 25px;font-size: 14px;width: 400px;box-shadow:0px 0px 3px orange"/></li>
 				</ul>
 			</div>
 			<div class="IAbdfoot">

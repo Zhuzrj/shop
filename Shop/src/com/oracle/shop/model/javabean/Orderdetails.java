@@ -10,6 +10,13 @@ import java.io.Serializable;
  */
 public class Orderdetails implements Serializable {
 
+	@Override
+	public String toString() {
+		return "Orderdetails [itemid=" + itemid + ", goodsid=" + goodsid
+				+ ", orderdetailsgoodsnumber=" + orderdetailsgoodsnumber
+				+ ", orderid=" + orderid + "]";
+	}
+
 	/** serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
@@ -20,10 +27,10 @@ public class Orderdetails implements Serializable {
 	private Integer goodsid;
 
 	/** 商品数量. */
-	private Double orderdetailsgoodsnumber;
+	private Integer orderdetailsgoodsnumber;
 
 	/** 订单编号. */
-	private Integer orderid;
+	private String orderid;
 
 	/**
 	 * 僐儞僗僩儔僋�?.
@@ -75,7 +82,7 @@ public class Orderdetails implements Serializable {
 	 * @param orderdetailsgoodsnumber
 	 *            商品数量
 	 */
-	public void setOrderdetailsgoodsnumber(Double orderdetailsgoodsnumber) {
+	public void setOrderdetailsgoodsnumber(Integer orderdetailsgoodsnumber) {
 		this.orderdetailsgoodsnumber = orderdetailsgoodsnumber;
 	}
 
@@ -84,7 +91,7 @@ public class Orderdetails implements Serializable {
 	 * 
 	 * @return 商品数量
 	 */
-	public Double getOrderdetailsgoodsnumber() {
+	public Integer getOrderdetailsgoodsnumber() {
 		return this.orderdetailsgoodsnumber;
 	}
 
@@ -94,7 +101,7 @@ public class Orderdetails implements Serializable {
 	 * @param orderid
 	 *            订单编号
 	 */
-	public void setOrderid(Integer orderid) {
+	public void setOrderid(String orderid) {
 		this.orderid = orderid;
 	}
 
@@ -103,7 +110,7 @@ public class Orderdetails implements Serializable {
 	 * 
 	 * @return 订单编号
 	 */
-	public Integer getOrderid() {
+	public String getOrderid() {
 		return this.orderid;
 	}
 

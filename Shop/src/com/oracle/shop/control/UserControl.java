@@ -42,8 +42,22 @@ public class UserControl {
 	}
 
 	@RequestMapping("/register")
-	public String register() {
+	public String register(String username,String password,String nickname) {
 		System.out.println("user -register");
+		//1.先获取用户在表单页面上填写的要注册的用户信息
+		
+		//2.调用dao里面的方法将这个心注册的用户资料插入到数据库表中
+		int result=dao.addUser(username, password, nickname);
+		if(result>0){
+			return "login";
+		}else{
+			return "register";
+		}
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.setAttribute("logineduser", null);
 		return "index";
 	}
 }
